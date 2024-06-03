@@ -36,6 +36,7 @@ public class Main {
         bw.flush();
         bw.close();
     }
+
     private static String check_pattern(String fileName) {
 
         if (check_len(fileName) && fileName.startsWith(pattern[0])) {
@@ -45,6 +46,7 @@ public class Main {
         }
         return fail;
     }
+
     private static boolean check_len(String fileName) {
         return fileName.length() >= pattern[0].length() + pattern[1].length();
     }
