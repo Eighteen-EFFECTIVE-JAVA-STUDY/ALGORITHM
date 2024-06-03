@@ -16,8 +16,8 @@ import java.io.*;
 public class Main {
 
     private static String[] pattern;
-    private static final String success = "DA";
-    private static final String fail = "NE";
+    private static final String SUCCESS = "DA";
+    private static final String FAIL = "NE";
 
     public static void main(String[] args) throws IOException {
 
@@ -29,25 +29,24 @@ public class Main {
 
         while (t-- > 0) {
             String fileName = br.readLine();
-            String result = check_pattern(fileName);
+            String result = checkPattern(fileName);
             bw.write(result);
-            bw.write("\n");
+            bw.newLine();
         }
         bw.flush();
         bw.close();
     }
 
-    private static String check_pattern(String fileName) {
+    private static String checkPattern(String fileName) {
 
-        if (check_len(fileName) && fileName.startsWith(pattern[0])) {
-            if (fileName.endsWith(pattern[1])) {
-                return success;
-            }
+        if (checkLength(fileName) && fileName.startsWith(pattern[0]) &&
+                fileName.endsWith(pattern[1])) {
+            return SUCCESS;
         }
-        return fail;
+        return FAIL;
     }
 
-    private static boolean check_len(String fileName) {
+    private static boolean checkLength(String fileName) {
         return fileName.length() >= pattern[0].length() + pattern[1].length();
     }
 }
