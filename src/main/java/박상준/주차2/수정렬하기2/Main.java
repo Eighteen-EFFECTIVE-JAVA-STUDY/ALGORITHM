@@ -3,7 +3,6 @@ package 박상준.주차2.수정렬하기2;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
 import java.util.Random;
 
 /**
@@ -31,7 +30,13 @@ public class Main {
         
         QuickSort.run(nums, 0, N - 1);
         
-        System.out.println("nums = " + Arrays.toString(nums));
+        StringBuilder sb = new StringBuilder();
+        
+        for (int num : nums) {
+            sb.append(num).append("\n");
+        }
+        
+        System.out.println(sb);
     }
     
     static class QuickSort {
@@ -55,11 +60,12 @@ public class Main {
             swap(elements, randomPivotIndex, end);
             
             // 3. 피봇을 제외한 나머지 원소들을 비교합니다.
+            int pivot = elements[end];
             int left = start;
             int right = end - 1;
             
             while (left <= right) {
-                if (elements[left] < elements[end]) {
+                if (elements[left] < pivot) {
                     left++;
                     continue;
                 }
@@ -69,10 +75,10 @@ public class Main {
             }
             
             // 4. 피봇을 제자리로 옮깁니다.
-            swap(elements, start, end);
+            swap(elements, left, end);
             
             // 5. 피봇의 인덱스를 반환합니다.
-            return start;
+            return left;
         }
         
         private static void swap(int[] elements, int t1, int t2) {
