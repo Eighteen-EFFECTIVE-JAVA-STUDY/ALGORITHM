@@ -7,16 +7,16 @@ public class BOJ_2751 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        TreeSet<String> treeSet = new TreeSet<>();
+        TreeSet<Integer> treeSet = new TreeSet<>();
 
         int n = Integer.parseInt(br.readLine());
 
         while (n-- > 0) {
             int num = Integer.parseInt(br.readLine());
-            treeSet.add(String.valueOf(num));
+            treeSet.add(num);
         }
-        for (String num : treeSet) {
-            bw.write(num);
+        for (Integer num : treeSet) {
+            bw.write(String.valueOf(num));
             bw.newLine();
         }
         bw.flush();
