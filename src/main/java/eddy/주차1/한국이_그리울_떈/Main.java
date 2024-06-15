@@ -1,4 +1,4 @@
-package eddy.주차1;
+package eddy.주차1.한국이_그리울_떈;
 
 import java.util.ArrayList;
 import java.util.List;
