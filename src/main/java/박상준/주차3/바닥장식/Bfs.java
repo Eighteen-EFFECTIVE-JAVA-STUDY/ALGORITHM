@@ -18,7 +18,7 @@ import java.util.StringTokenizer;
  * -----------------------------------------------------------
  * 24. 6. 16.        ipeac       최초 생성
  */
-public class Main {
+public class Bfs {
     private static final int[] DX = {0, 0, -1, 1};
     private static final int[] DY = {-1, 1, 0, 0};
     private static int N;
