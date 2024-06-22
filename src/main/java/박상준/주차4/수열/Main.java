@@ -19,10 +19,6 @@ import java.util.StringTokenizer;
  * 24. 6. 22.        ipeac       최초 생성
  */
 public class Main {
-    static int[] UP;
-    static int[] DOWN;
-    static boolean isUp;
-    
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         
@@ -42,28 +38,25 @@ public class Main {
             return;
         }
         
-        UP = new int[N];
-        DOWN = new int[N];
-        
-        UP[0] = 1;
-        DOWN[0] = 1;
+        int upCount = 1;
+        int downCount = 1;
         
         int maxLen = 1;
         
         for (int i = 1; i < arr.size(); i++) {
             if (arr.get(i) >= arr.get(i - 1)) {
-                UP[i] = UP[i - 1] + 1;
+                upCount++;
             } else {
-                UP[i] = 0;
+                upCount = 1;
             }
             
             if (arr.get(i - 1) >= arr.get(i)) {
-                DOWN[i] = DOWN[i - 1] + 1;
+                downCount++;
             } else {
-                DOWN[i] = 0;
+                downCount = 1;
             }
             
-            maxLen = Math.max(Math.max(UP[i], DOWN[i]), maxLen);
+            maxLen = Math.max(Math.max(upCount, downCount), maxLen);
         }
         
         System.out.println(maxLen);
