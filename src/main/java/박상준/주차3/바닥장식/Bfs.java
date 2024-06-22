@@ -19,8 +19,8 @@ import java.util.StringTokenizer;
  * 24. 6. 16.        ipeac       최초 생성
  */
 public class Bfs {
-    private static final int[] DX = {0, 0, -1, 1};
-    private static final int[] DY = {-1, 1, 0, 0};
+    private static final int[] DX = {0, 1};
+    private static final int[] DY = {1, 0};
     private static int N;
     private static int M;
     
@@ -78,11 +78,11 @@ public class Bfs {
             
             char currentType = floor[currentX][currentY];
             
-            for (int i = 0; i < 4; i++) {
+            for (int i = 0; i < 2; i++) {
                 int nx = currentX + DX[i];
                 int ny = currentY + DY[i];
                 
-                if (0 > nx || 0 > ny || nx >= N || ny >= M || visited[nx][ny]) {
+                if (nx >= N || ny >= M || visited[nx][ny]) {
                     continue;
                 }
                 
@@ -99,11 +99,11 @@ public class Bfs {
     }
     
     private static boolean isHorizon(char currentType, int index) {
-        return (currentType == '-') && (index == 0 || index == 1);
+        return (currentType == '-') && (index == 0);
     }
     
     private static boolean isVertical(char currentType, int index) {
-        return (currentType == '|') && (index == 2 || index == 3);
+        return (currentType == '|') && (index == 1);
     }
     
     static class Pair {
