@@ -46,9 +46,7 @@ public class Main {
 
         count = 1;
         for ( int i = 1; i < n; i++) {
-            // 길이가 1일경우
-
-            if (arrInt[i - 1] >= arrInt[i]) {
+          if (arrInt[i - 1] >= arrInt[i]) {
                 count++;
                 maxCount = Math.max(maxCount, count);
             } else {
