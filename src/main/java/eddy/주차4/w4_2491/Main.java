@@ -30,7 +30,7 @@ public class Main {
             arrInt[i] = Integer.parseInt(arr[i]);
         }
 
-        //길이
+        //길이 카운트
         int count = 1;
         int maxCount = 1;
 
@@ -48,7 +48,7 @@ public class Main {
         for ( int i = 1; i < n; i++) {
             // 길이가 1일경우
 
-            if (arrInt[i - 1] >= arrInt[i]) {  //커질때. 근데 연속해서 커져야함\
+            if (arrInt[i - 1] >= arrInt[i]) {
                 count++;
                 maxCount = Math.max(maxCount, count);
             } else {
