@@ -1,4 +1,4 @@
-package Do.W01_9996;
+package 최도혁.주차1.BOJ_9996;
 
 import java.io.*;
 
