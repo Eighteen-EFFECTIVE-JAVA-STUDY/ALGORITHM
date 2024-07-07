@@ -33,11 +33,11 @@ public class Main {
         
         Collections.sort(arr);
         
-        int rank = 1;
+        int realRank = 1;
         
         for (int expected : arr) {
-            answer += Math.abs(rank - expected);
-            rank++;
+            answer += Math.abs(realRank - expected);
+            realRank++;
         }
         
         System.out.println(answer);
