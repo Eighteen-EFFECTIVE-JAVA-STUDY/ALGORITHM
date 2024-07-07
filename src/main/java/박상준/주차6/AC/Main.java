@@ -32,7 +32,7 @@ public class Main {
         while (T-- > 0) {
             char[] functions = br.readLine().toCharArray();
             
-            int arrSize = Integer.parseInt(br.readLine());
+            int qSize = Integer.parseInt(br.readLine());
             
             StringTokenizer st = new StringTokenizer(br.readLine(), "[,]");
             
@@ -45,28 +45,24 @@ public class Main {
             }
             
             boolean isError = false;
+            boolean isReverse = false;
             
             for (char function : functions) {
                 if (checkIfReverse(function)) {
-                    Deque<Integer> tempQueue = new ArrayDeque<>();
-                    
-                    for (int i = 0; i < arrSize; i++) {
-                        tempQueue.addLast(queue.pollLast());
-                    }
-                    
-                    queue = tempQueue;
-                    
+                    isReverse = !isReverse;
                     continue;
                 }
                 
                 if (checkIfDiscardFirst(function)) {
                     if (queue.isEmpty()) {
-                        answer.append(ERROR).append("\n");
-                        isError = true;
+                        isError = isError(answer);
                         break;
                     }
                     
-                    queue.pollFirst();
+                    if (isReverse) queue.pollLast();
+                    else queue.pollFirst();
+                    
+                    qSize--;
                 }
             }
             
@@ -74,10 +70,30 @@ public class Main {
                 continue;
             }
             
+            if (isReverse && !queue.isEmpty()) {
+                queue = reversed(qSize, queue);
+            }
+            
             answer.append(format(queue)).append("\n");
         }
         
         System.out.println(answer);
+    }
+    
+    private static boolean isError(StringBuilder answer) {
+        answer.append(ERROR).append("\n");
+        return true;
+    }
+    
+    private static Deque<Integer> reversed(int qSize, Deque<Integer> queue) {
+        Deque<Integer> tempQueue = new ArrayDeque<>();
+        
+        for (int i = 0; i < qSize; i++) {
+            tempQueue.addLast(queue.pollLast());
+        }
+        
+        queue = tempQueue;
+        return queue;
     }
     
     private static String format(Deque<Integer> tDeque) {
