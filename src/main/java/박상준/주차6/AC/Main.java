@@ -39,9 +39,7 @@ public class Main {
             Deque<Integer> queue = new ArrayDeque<>();
             
             while (st.hasMoreTokens()) {
-                String inputData = st.nextToken();
-                
-                queue.add(Integer.parseInt(inputData));
+                fillDeque(st, queue);
             }
             
             boolean isError = false;
@@ -55,14 +53,12 @@ public class Main {
                 
                 if (checkIfDiscardFirst(function)) {
                     if (queue.isEmpty()) {
-                        isError = isError(answer);
+                        appendErrorinAnswer(answer);
+                        isError = true;
                         break;
                     }
                     
-                    if (isReverse) queue.pollLast();
-                    else queue.pollFirst();
-                    
-                    qSize--;
+                    qSize = discard(isReverse, queue, qSize);
                 }
             }
             
@@ -74,15 +70,32 @@ public class Main {
                 queue = reversed(qSize, queue);
             }
             
-            answer.append(format(queue)).append("\n");
+            appendQinAnswer(answer, queue);
         }
         
         System.out.println(answer);
     }
     
-    private static boolean isError(StringBuilder answer) {
+    private static void appendQinAnswer(StringBuilder answer, Deque<Integer> queue) {
+        answer.append(format(queue)).append("\n");
+    }
+    
+    private static void fillDeque(StringTokenizer st, Deque<Integer> queue) {
+        String inputData = st.nextToken();
+        
+        queue.add(Integer.parseInt(inputData));
+    }
+    
+    private static int discard(boolean isReverse, Deque<Integer> queue, int qSize) {
+        if (isReverse) queue.pollLast();
+        else queue.pollFirst();
+        
+        qSize--;
+        return qSize;
+    }
+    
+    private static void appendErrorinAnswer(StringBuilder answer) {
         answer.append(ERROR).append("\n");
-        return true;
     }
     
     private static Deque<Integer> reversed(int qSize, Deque<Integer> queue) {
