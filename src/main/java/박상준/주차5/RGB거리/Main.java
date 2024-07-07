@@ -1,4 +1,4 @@
-package 박상준.주차5;
+package 박상준.주차5.RGB거리;
 
 import java.io.BufferedReader;
 import java.io.IOException;
