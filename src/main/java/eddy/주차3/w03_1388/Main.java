@@ -18,9 +18,9 @@ import java.util.StringTokenizer;
  */
 
 public class Main {
-    static int N, M;
+    static int N, M;  //가로 세로 크기
     static char[][] arr;
-    static boolean[][] visited;
+    static boolean[][] visited;  // 위치 방문 여부
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -29,8 +29,8 @@ public class Main {
         N = Integer.parseInt(st.nextToken());
         M = Integer.parseInt(st.nextToken());
 
-        arr = new char[N][M];
-        visited = new boolean[N][M];
+        arr = new char[N][M]; //입력된 패턴을 저장하는 배열
+        visited = new boolean[N][M]; //방문여부를 기록하는 배열
         for (int i = 0; i < N; i++) {
             String str = br.readLine();
             for (int j = 0; j < M; j++) {
@@ -38,11 +38,11 @@ public class Main {
             }
         }
 
-        int cnt = 0;
+        int cnt = 0; // 장식 모양 개수 카운트
 
         for (int i = 0; i < N; i++) {
             for (int j = 0; j < M; j++) {
-                if(visited[i][j]) {
+                if(visited[i][j]) {   //이미 방문했던 위치라면 그냥 지나치기
                     continue;
                 }if(arr[i][j] == '-') {
                     dfs(i, j, true);
@@ -60,10 +60,12 @@ public class Main {
         visited[i][j] = true;
         if(row) {
             j++;
+            //다음 문자열이 똑같이 -패턴이면 가로로 계속 탐색
             if(j<M && arr[i][j] == '-') dfs(i, j, true);
         }
         else {
             i++;
+            //다음 문자열이 ㅣ 패턴이면 세로로 ㅣ패턴이 끝날 때까지 끝까지 탐색
             if(i<N && arr[i][j] != '-') dfs(i, j, false);
         }
 
