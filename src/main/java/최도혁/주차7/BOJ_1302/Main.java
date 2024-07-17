@@ -15,10 +15,10 @@ public class Main {
         for(int i=0; i<N; i++){
             String book = br.readLine();
 
-            booksSoldToday.put(book, booksSoldToday.getOrDefault(book, 1)+1);
+            booksSoldToday.put(book, booksSoldToday.getOrDefault(book, 0)+1);
         }
 
-        List<Map.Entry<String, Integer>> bestSeller = new LinkedList<>(booksSoldToday.entrySet());
+        List<Map.Entry<String, Integer>> bestSeller = new ArrayList<>(booksSoldToday.entrySet());
         bestSeller.sort(Map.Entry.<String, Integer>comparingByValue(Collections.reverseOrder())
                         .thenComparing(Map.Entry.comparingByKey()));
 
