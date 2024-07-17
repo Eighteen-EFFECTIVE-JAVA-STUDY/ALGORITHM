@@ -15,19 +15,12 @@ public class Main {
         for(int i=0; i<N; i++){
             String book = br.readLine();
 
-            if(booksSoldToday.containsKey(book)){
-                booksSoldToday.put(book,booksSoldToday.get(book)+1);
-            } else {
-                booksSoldToday.put(book,1);
-            }
+            booksSoldToday.put(book, booksSoldToday.getOrDefault(book, 1)+1);
         }
 
         List<Map.Entry<String, Integer>> bestSeller = new LinkedList<>(booksSoldToday.entrySet());
-        bestSeller.sort((o1, o2) -> {
-            if (o1.getValue().equals(o2.getValue()))
-                return o1.getKey().compareTo(o2.getKey());
-            return o2.getValue() - o1.getValue();
-        });
+        bestSeller.sort(Map.Entry.<String, Integer>comparingByValue(Collections.reverseOrder())
+                        .thenComparing(Map.Entry.comparingByKey()));
 
         System.out.print(bestSeller.get(0).getKey());
     }
