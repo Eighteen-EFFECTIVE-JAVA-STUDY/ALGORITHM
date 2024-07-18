@@ -20,7 +20,6 @@ public class Main {
             //getORDefault(찾는 키값 , 찾는 키의 value 값이 없거나 null일때 반환하는 값)
             // : null 대신 기본 값을 반환하는 메소드
             max = Math.max(max, map.get(book));
-
         }
 
         List<String> list = new ArrayList<>();
