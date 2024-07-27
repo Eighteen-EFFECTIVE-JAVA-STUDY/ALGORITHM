@@ -1,4 +1,4 @@
-package 최도혁.주차7.BOJ_9935;
+package 최도혁.주차8.BOJ_9935;
 
 import java.io.BufferedReader;
 import java.io.IOException;
