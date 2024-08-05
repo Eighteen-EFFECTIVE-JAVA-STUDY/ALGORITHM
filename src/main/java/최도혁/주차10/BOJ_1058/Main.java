@@ -19,16 +19,10 @@ public class Main {
 
         for (int i = 0; i < n; i++) {
             int count = 0;
-            boolean[] visited = new boolean[n];
 
             for (int j = 0; j < n; j++) {
-                if (i != j && (friendsMatrix[i][j] == 'Y' || isFriendOfFriend(i, j, friendsMatrix))) {
-                    visited[j] = true;
-                }
-            }
-
-            for (boolean b : visited) {
-                if (b) count++;
+                if (i != j && (friendsMatrix[i][j] == 'Y' || isFriendOfFriend(i, j, friendsMatrix)))
+                    count++;
             }
 
             maxFriends = Math.max(maxFriends, count);
