@@ -23,8 +23,6 @@ public class Main {
             int N = Integer.parseInt(br.readLine());
             int[][] friends = new int[N][N];
             
-            int max = 0;
-            
             // 친구 관계를 그래프로,, 각 친구는 정점이며, 관계는 간선으로 표현한다..
             // 직접 친구인 경우 1 아닌 경우 INF
             
