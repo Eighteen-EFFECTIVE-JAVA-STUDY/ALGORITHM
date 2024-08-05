@@ -54,9 +54,7 @@ public class Main {
                             continue;
                         }
                         
-                        if (friends[i][j] > friends[i][k] + friends[k][j]) {
-                            friends[i][j] = friends[i][k] + friends[k][j];
-                        }
+                        setShortestCount(friends, i, j, k);
                     }
                 }
             }
@@ -71,7 +69,7 @@ public class Main {
                         continue;
                     }
                     
-                    if (friends[i][j] <= 2) {
+                    if (isTwoFriends(j, friends[i])) {
                         friendCount++;
                     }
                 }
@@ -83,6 +81,16 @@ public class Main {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+    
+    private static void setShortestCount(int[][] friends, int i, int j, int k) {
+        if (friends[i][j] > friends[i][k] + friends[k][j]) {
+            friends[i][j] = friends[i][k] + friends[k][j];
+        }
+    }
+    
+    private static boolean isTwoFriends(int j, int[] friends) {
+        return friends[j] <= 2;
     }
     
     private static boolean isMe(int i, int j) {
