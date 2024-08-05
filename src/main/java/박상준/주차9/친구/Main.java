@@ -16,6 +16,9 @@ import java.util.Objects;
  * 24. 8. 5.        ipeac       최초 생성
  */
 public class Main {
+    public static final int DIRECT_FRIEND_VALUE = 1;
+    public static final int INDIRECT_FRIEND_VALUE = 0;
+    public static final int MOCKED_INF_VALUE = 10000;
     
     public static void main(String[] args) {
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
@@ -25,23 +28,22 @@ public class Main {
             
             // 친구 관계를 그래프로,, 각 친구는 정점이며, 관계는 간선으로 표현한다..
             // 직접 친구인 경우 1 아닌 경우 INF
-            
             for (int i = 0; i < N; i++) {
                 String[] st = br.readLine().split("");
                 
                 for (int j = 0; j < N; j++) {
                     if (isMe(i, j)) {
-                        friends[i][j] = 0;
+                        friends[i][j] = INDIRECT_FRIEND_VALUE;
                         continue;
                     }
                     
                     if (isY(st[j])) {
-                        friends[i][j] = 1;
+                        friends[i][j] = DIRECT_FRIEND_VALUE;
                         continue;
                     }
                     
                     if (isN(st[j])) {
-                        friends[i][j] = 10000;
+                        friends[i][j] = MOCKED_INF_VALUE;
                     }
                 }
             }
