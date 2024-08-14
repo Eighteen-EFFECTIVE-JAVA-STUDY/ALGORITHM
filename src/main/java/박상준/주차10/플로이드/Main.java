@@ -30,8 +30,12 @@ public class Main {
             
             for (int i = 1; i <= n; i++) {
                 for (int j = 1; j <= n; j++) {
-                    if (i == j) GRAPH[i][j] = 0;
-                    else GRAPH[i][j] = INF;
+                    if (i == j) {
+                        GRAPH[i][j] = 0;
+                        continue;
+                    }
+                    
+                    GRAPH[i][j] = INF;
                 }
             }
             
