@@ -1,4 +1,4 @@
-package 박상준.연습.정수삼각형1932;
+package 박상준.연습.백준.정수삼각형1932;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Arrays;
 
 /**
- * packageName    : 박상준.연습.정수삼각형1932
+ * packageName    : 박상준.연습.백준.정수삼각형1932
  * fileName       : Main
  * author         : ipeac
  * date           : 25. 1. 24.

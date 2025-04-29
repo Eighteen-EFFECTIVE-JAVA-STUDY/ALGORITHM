@@ -1,4 +1,4 @@
-package 박상준.연습.문자열게임2;
+package 박상준.연습.백준.문자열게임2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 import java.util.Objects;
 
 /**
- * packageName    : 박상준.연습.문자열게임2
+ * packageName    : 박상준.연습.백준.문자열게임2
  * fileName       : Main
  * author         : sjunpark
  * date           : 24. 12. 16.
@@ -49,7 +49,7 @@ public class Main {
         final int end = w.length() - 1;
         
         for (int i = start; i < end; i++) {
-            
+        
         }
         
         //슬라이딩 윈도우 기법

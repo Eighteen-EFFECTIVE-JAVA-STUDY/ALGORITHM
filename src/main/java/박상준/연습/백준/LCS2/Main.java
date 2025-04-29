@@ -1,11 +1,11 @@
-package 박상준.연습.LCS2;
+package 박상준.연습.백준.LCS2;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
 /**
- * packageName    : 박상준.연습.LCS2
+ * packageName    : 박상준.연습.백준.LCS2
  * fileName       : Main
  * author         : Jun
  * date           : 25. 1. 28.

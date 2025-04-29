@@ -1,7 +1,7 @@
-package 박상준.연습.가위가위가위30506;
+package 박상준.연습.백준.가위가위가위30506;
 
 /**
- * packageName    : 박상준.연습.가위가위가위30506
+ * packageName    : 박상준.연습.백준.가위가위가위30506
  * fileName       : Main
  * author         : ipeac
  * date           : 25. 1. 2.

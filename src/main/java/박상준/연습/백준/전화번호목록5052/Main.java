@@ -1,4 +1,4 @@
-package 박상준.연습.전화번호목록5052;
+package 박상준.연습.백준.전화번호목록5052;
 
 import java.io.BufferedReader;
 import java.io.IOException;

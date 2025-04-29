@@ -1,4 +1,4 @@
-package 박상준.연습.좋다1253;
+package 박상준.연습.백준.좋다1253;
 
 import java.io.BufferedReader;
 import java.io.IOException;
