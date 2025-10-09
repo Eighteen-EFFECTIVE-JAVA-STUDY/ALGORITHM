@@ -31,7 +31,6 @@ public class Main {
         
         for (int i = 0; i < K - 1; i++) {
           // 뒤에서부터 덧셈을 수행한다.
-            int
         }
     }
 }
